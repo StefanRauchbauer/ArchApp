@@ -7,33 +7,24 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
-        tools:context=".LogIn_Activity">
+        tools:context=".RegistrationView">
 
-
-    <EditText android:id="@+id/input_email"
+    <EditText android:id="@+id/input_email_register"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:inputType="textEmailAddress"
               android:hint="Email" />
 
-    <EditText android:id="@+id/input_password"
+    <EditText android:id="@+id/input_password_register"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:inputType="textPassword"
               android:hint="Password"/>
 
     <android.support.v7.widget.AppCompatButton
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login"/>
-
-    <TextView
-            android:id="@+id/txt_register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Click here to Register"
-            android:clickable="true"/>
-
+            android:text="Save"/>
 
 </LinearLayout>
