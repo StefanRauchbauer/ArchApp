@@ -27,6 +27,8 @@
         </activity>
         <activity android:name=".RegistrationView">
         </activity>
+        <activity android:name=".MenueView">
+        </activity>
     </application>
 
 </manifest>
