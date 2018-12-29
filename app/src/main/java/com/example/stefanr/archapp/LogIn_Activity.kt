@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_log_in_.*
@@ -41,7 +42,11 @@ class LogIn_Activity : AppCompatActivity() {
                 if(it.isSuccessful)
                 {
                     Log.e("nain", "Successfull Login")
+                    Toast.makeText(this,"Loggin successfull",Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this, MenueView::class.java))
+                }
+                else{
+                    Toast.makeText(this,"Loggin not successfull",Toast.LENGTH_SHORT).show()
                 }
             }
         }
