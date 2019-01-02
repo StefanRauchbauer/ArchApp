@@ -1,11 +1,36 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:color">#FFFFFF</item>
     </style>
+
+
+    <!-- Customize your theme here. -->
+    <style name="CustomToolbarStyle" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <!-- Mennu Item Theme your theme here. -->
+    <style name="CustomPopupStyle" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="overlapAnchor">false</item>
+        <item name="android:dropDownVerticalOffset">-4dp</item>
+    </style>
+
+
+    <!-- Splash Screen theme. -->
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+
+    </style>
+    <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <!-- SiteMaps Activity theme
+    <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Light.NoActionBar"/>
+    <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>-->
 
 </resources>
