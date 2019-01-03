@@ -18,6 +18,7 @@ class CreateAccountView : BaseView() {
     lateinit var presenter: CreateAccountPresenter
 
     //UI elements
+    //declating User interface elements needed for Create Account View
     private var etFirstName: EditText? = null
     private var etLastName: EditText? = null
     private var etEmail: EditText? = null
@@ -45,6 +46,7 @@ class CreateAccountView : BaseView() {
         hideProgress()
 
         // Create Account Button Click Listener
+        //checking if all textviews are filled
         btnCreateAccount!!.setOnClickListener {
             if (etEmail!!.text.isEmpty() ||
                 etPassword!!.text.isEmpty() ||
@@ -53,6 +55,7 @@ class CreateAccountView : BaseView() {
             ) {
                 toast("Enter all required Fields")
             } else {
+                //passing all informations to the presenter
                 presenter.doCreateNewAccount(
                     etEmail!!.text.toString(),
                     etPassword!!.text.toString(),
@@ -88,6 +91,8 @@ class CreateAccountView : BaseView() {
         return super.onOptionsItemSelected(item)
     }
 
+
+    //view elements get inizialized here
     private fun InitializeUiElements() {
         etFirstName = findViewById<View>(R.id.et_first_name) as EditText
         etLastName = findViewById<View>(R.id.et_last_name) as EditText
