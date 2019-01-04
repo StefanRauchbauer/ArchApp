@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+            android:id="@+id/item_save"
+            android:title="@string/menu_save_site"
+            app:showAsAction="always"/>
+
+    <item
+            android:id="@+id/item_delete"
+            android:title="@string/menu_delete"
+            android:visible="true"
+            app:showAsAction="never"/>
+
+    <item
+            android:id="@+id/item_cancel"
+            android:title="@string/menu_cancel"
+            android:visible="true"
+            app:showAsAction="never"/>
+
+    <item
+            android:id="@+id/item_share"
+            android:title="@string/menu_share"
+            android:visible="true"
+            app:showAsAction="never"/>
+
+    <item
+            android:id="@+id/item_logout"
+            android:title="@string/menu_logout"
+            android:visible="true"
+            app:showAsAction="never"/>
+</menu>
