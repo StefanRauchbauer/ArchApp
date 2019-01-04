@@ -19,6 +19,8 @@ class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.O
     lateinit var presenter: EditLocationPresenter
 
     //UI
+    //creating all elements of the User Interface
+
     private var toolbarEdit: Toolbar? = null
     private var tv_lat: TextView? = null
     private var tv_lng: TextView? = null
@@ -46,7 +48,7 @@ class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.O
             presenter.doConfigureMap(it)
         }
 
-
+        //output coordinates
         tv_lat!!.text = "%.6f".format(presenter.location.lat)
         tv_lng!!.text = "%.6f".format(presenter.location.lng)
 
@@ -70,11 +72,15 @@ class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.O
 
     override fun onMarkerDragStart(marker: Marker) {}
 
+    //changes the output onMarkerDrag
     override fun onMarkerDrag(marker: Marker) {
         tv_lat!!.text = "%.6f".format(marker.position.latitude)
         tv_lng!!.text = "%.6f".format(marker.position.longitude)
     }
 
+
+    //update presenter whan drag stopped
+    //new coordinates are set
     override fun onMarkerDragEnd(marker: Marker) {
         presenter.doUpdateLocation(marker.position.latitude, marker.position.longitude)
     }

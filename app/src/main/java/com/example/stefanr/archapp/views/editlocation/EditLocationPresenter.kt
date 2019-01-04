@@ -20,6 +20,7 @@ class EditLocationPresenter(view: BaseView) : BasePresenter(view) {
     }
 
     // Configure the Map
+    //setting up the map
     fun doConfigureMap(map: GoogleMap) {
         val loc = LatLng(location.lat, location.lng)
         val options = MarkerOptions()
@@ -32,6 +33,7 @@ class EditLocationPresenter(view: BaseView) : BasePresenter(view) {
     }
 
     // Updates the Location
+    //this function takes to double as coordinates and writes them into location
     fun doUpdateLocation(lat: Double, lng: Double) {
         location.lat = lat
         location.lng = lng
@@ -47,6 +49,7 @@ class EditLocationPresenter(view: BaseView) : BasePresenter(view) {
 
 
     // Updates the Marker
+    //update the marker if it gets changed with drag and drop
     fun doUpdateMarker(marker: Marker) {
         val loc = LatLng(location.lat, location.lng)
         marker.snippet = "GPS : " + loc.toString()
