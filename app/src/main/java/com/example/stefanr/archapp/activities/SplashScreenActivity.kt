@@ -12,10 +12,12 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-        val background = object : Thread() {
+        //initialize runable backgroundObject
+
+        val backgroundOject = object : Thread() {
             override fun run() {
                 try {
-                    Thread.sleep(3000)
+                    Thread.sleep(3500)
 
                     val intent = Intent(baseContext, LoginView::class.java)
                     startActivity(intent)
@@ -25,6 +27,6 @@ class SplashScreenActivity : AppCompatActivity() {
 
             }
         }
-        background.start()
+        backgroundOject.start()
     }
 }
