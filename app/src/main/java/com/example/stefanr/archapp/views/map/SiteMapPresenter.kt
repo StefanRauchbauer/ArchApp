@@ -19,6 +19,8 @@ class SiteMapPresenter(view: BaseView) : BasePresenter(view) {
 
         map.uiSettings.isZoomControlsEnabled = true
 
+        //loop over all markers created so far
+        //adding them to the map
         sites.forEach {
             val loc = LatLng(it.location.lat, it.location.lng)
             val options = MarkerOptions().title(it.name).position(loc)

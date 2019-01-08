@@ -32,17 +32,17 @@ class ForgotPasswordPresenter(view: BaseView) : BasePresenter(view) {
                 .sendPasswordResetEmail(email)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        val message = "Email sent."
+                        val message = "Email sent successfully."
                         Log.d(TAG, message)
                         view?.toast(message)
                         view?.navigateTo(VIEW.LOGIN)
                     } else {
                         Log.w(TAG, task.exception!!.message)
-                        view?.toast("No user found with this email.")
+                        view?.toast("No Account with this E-Mail")
                     }
                 }
         } else {
-            view?.toast("Enter Email")
+            view?.toast("Enter your Email-Adress")
         }
     }
 

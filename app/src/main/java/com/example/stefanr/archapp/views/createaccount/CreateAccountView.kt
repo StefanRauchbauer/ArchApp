@@ -43,7 +43,7 @@ class CreateAccountView : BaseView() {
         presenter = initPresenter(CreateAccountPresenter(this)) as CreateAccountPresenter
 
         // Hide Progressbar
-        hideProgress()
+        hideProgressBar()
 
         // Create Account Button Click Listener
         //checking if all textviews are filled
@@ -67,11 +67,11 @@ class CreateAccountView : BaseView() {
         }
     }
 
-    override fun showProgress() {
+    override fun showProgressBar() {
         mProgressBar!!.visibility = View.VISIBLE
     }
 
-    override fun hideProgress() {
+    override fun hideProgressBar() {
         mProgressBar!!.visibility = View.GONE
     }
 

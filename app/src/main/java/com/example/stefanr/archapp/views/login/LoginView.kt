@@ -16,9 +16,9 @@ class LoginView : BaseView() {
     lateinit var presenter: LoginPresenter
 
     //UI elements
-    private var tvForgotPassword: TextView? = null
-    private var etEmail: EditText? = null
-    private var etPassword: EditText? = null
+    private var txtViewForgotPassword: TextView? = null
+    private var txtEmail: EditText? = null
+    private var txtPassword: EditText? = null
     private var btnLogin: Button? = null
     private var btnCreateAccount: Button? = null
     private var mProgressBar: ProgressBar? = null
@@ -40,35 +40,37 @@ class LoginView : BaseView() {
         presenter = initPresenter(LoginPresenter(this)) as LoginPresenter
 
         //Hide Progressbar
-        hideProgress()
+        hideProgressBar()
 
-        // Trigger the Forgot Password Button Event
-        tvForgotPassword!!.setOnClickListener { presenter.doForgotPassword() }
+        // Triggers whan btnLogin is  clicked on login method gets called
+        btnLogin!!.setOnClickListener { presenter.login(txtEmail!!.text.toString(), txtPassword!!.text.toString()) }
 
-        // Trigger the Create Account Button Event
+        // Trigger if forgot Password textView is clicked
+        txtViewForgotPassword!!.setOnClickListener { presenter.forgotPassword() }
+
+        // Trigger event if btnCreatAccount is clicked function doCreateAccount gets called
         btnCreateAccount!!.setOnClickListener { presenter.doCreateAccount() }
 
-        // Trigger the Login User Button Event
-        btnLogin!!.setOnClickListener { presenter.doLogin(etEmail!!.text.toString(), etPassword!!.text.toString()) }
+
     }
 
 
-    override fun showProgress() {
+    override fun showProgressBar() {
         mProgressBar!!.visibility = View.VISIBLE
     }
 
-    override fun hideProgress() {
+    override fun hideProgressBar() {
         mProgressBar!!.visibility = View.GONE
     }
 
-    // Initialize the UI Elements
+
     private fun InitialzieUiElements() {
-        tvForgotPassword = findViewById<View>(R.id.tv_forgot_password) as TextView
-        etEmail = findViewById<View>(R.id.et_email) as EditText
-        etPassword = findViewById<View>(R.id.et_password) as EditText
+        txtViewForgotPassword = findViewById<View>(R.id.tv_forgot_password) as TextView
+        txtEmail = findViewById<View>(R.id.et_email) as EditText
+        txtPassword = findViewById<View>(R.id.et_password) as EditText
         btnLogin = findViewById<View>(R.id.btn_login) as Button
         btnCreateAccount = findViewById<View>(R.id.btn_register_account) as Button
         mProgressBar = findViewById<View>(R.id.login_progressbar) as ProgressBar
-        //  mAuth = FirebaseAuth.getInstance()
+
     }
 }

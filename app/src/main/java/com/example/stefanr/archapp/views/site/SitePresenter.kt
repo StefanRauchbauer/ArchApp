@@ -26,16 +26,10 @@ import java.io.IOException
 
 class SitePresenter(view: BaseView) : BasePresenter(view) {
 
-    // Google Map
+
     var map: GoogleMap? = null
-
-    //Firebase references
     var mAuth: FirebaseAuth? = null
-
-    // Site Model
     var site = SiteModel()
-
-    // Member
     var edit = false
     var mImagePath: String = ""
 

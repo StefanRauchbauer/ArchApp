@@ -34,7 +34,7 @@ class CreateAccountPresenter(view: BaseView) : BasePresenter(view) {
 
         // Shows Progressbar
         //connect to the firebase Instance and giving it the email +password
-        view?.showProgress()
+        view?.showProgressBar()
         mAuth!!
             .createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(view!!) { task ->
@@ -62,7 +62,7 @@ class CreateAccountPresenter(view: BaseView) : BasePresenter(view) {
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
 
                     // Hides Progressbar
-                    view?.hideProgress()
+                    view?.hideProgressBar()
                     view?.toast("Failed to create an Account.")
                 }
             }

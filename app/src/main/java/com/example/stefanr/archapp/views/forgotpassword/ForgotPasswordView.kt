@@ -17,7 +17,7 @@ class ForgotPasswordView : BaseView() {
     // Site List Presenter
     lateinit var presenter: ForgotPasswordPresenter
 
-    //UI elements
+    //User Interface
     private var etEmail: EditText? = null
     private var btnSubmit: Button? = null
     private var toolbarForgotPassword: Toolbar? = null

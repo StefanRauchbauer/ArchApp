@@ -1,8 +1,6 @@
 package com.example.stefanr.archapp.views.login
 
-import android.content.ContentValues.TAG
 import android.text.TextUtils
-import android.util.Log
 import com.example.stefanr.archapp.models.firebase.SiteServiceFirebase
 import com.example.stefanr.archapp.views.BasePresenter
 import com.example.stefanr.archapp.views.BaseView
@@ -26,17 +24,17 @@ class LoginPresenter(view: BaseView) : BasePresenter(view) {
 
 
     // Handles the Login implementation
-    fun doLogin(email: String, password: String) {
+    fun login(email: String, password: String) {
         if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
             // Shows Progressbar
-            view?.showProgress()
-            Log.d(TAG, "Logging in user.")
+            view?.showProgressBar()
+
 
             mAuth!!.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(view!!) { task ->
-                    if (task.isSuccessful) {
+                .addOnCompleteListener(view!!) {
+                    if (it.isSuccessful) {
                         // Sign in success, update UI with signed-in user's information
-                        Log.d(TAG, "signInWithEmail:success")
+
                         if (firebaseService != null) {
                             firebaseService!!.fetchSites {
                                 view?.navigateTo(VIEW.SITELIST)
@@ -45,13 +43,13 @@ class LoginPresenter(view: BaseView) : BasePresenter(view) {
                             view?.navigateTo(VIEW.SITELIST)
                         }
                     } else {
-                        view?.toast("Sign Up Failed: ${task.exception?.message}")
+                        view?.toast("Sign Up Failed: ${it.exception?.message}")
                     }
                     // Hide Progressbar
-                    view?.hideProgress()
+                    view?.hideProgressBar()
                 }
         } else {
-            view?.toast("Enter all Details")
+            view?.toast("Enter your Loggin-Details")
         }
     }
 
@@ -59,7 +57,7 @@ class LoginPresenter(view: BaseView) : BasePresenter(view) {
         view?.navigateTo(VIEW.CREATESITE)
     }
 
-    fun doForgotPassword() {
+    fun forgotPassword() {
         view?.navigateTo(VIEW.FORGOTPASSWORD)
     }
 }

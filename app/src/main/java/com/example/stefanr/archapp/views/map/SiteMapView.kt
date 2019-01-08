@@ -77,8 +77,6 @@ class SiteMapView : BaseView(), GoogleMap.OnMarkerClickListener {
         txtViewSiteName!!.text = site.name
         txtViewSiteDescription!!.text = site.description
         cbSiteVisited!!.isChecked = site.visited
-
-        //   ivSiteImage!!.setImageBitmap(readImageFromPath(this, site.images[0]))
         Glide.with(this).load(site.images[0]).into(ivSiteImage!!)
     }
 
