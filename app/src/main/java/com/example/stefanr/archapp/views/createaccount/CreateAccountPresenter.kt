@@ -30,7 +30,7 @@ class CreateAccountPresenter(view: BaseView) : BasePresenter(view) {
 
 
     //funtion to create a new account with email,password,first and last name
-    fun doCreateNewAccount(email: String, password: String, firstName: String, lastName: String) {
+    fun doCreateAccount(email: String, password: String, firstName: String, lastName: String) {
 
         // Shows Progressbar
         //connect to the firebase Instance and giving it the email +password
@@ -48,7 +48,7 @@ class CreateAccountPresenter(view: BaseView) : BasePresenter(view) {
                     val userId = mAuth!!.currentUser!!.uid
 
                     //Verify Email
-                    verifyEmail()
+                    verifyMail()
 
                     //update user profile information
                     val currentUserDb = mDatabaseReference!!.child(userId)
@@ -69,12 +69,12 @@ class CreateAccountPresenter(view: BaseView) : BasePresenter(view) {
     }
 
     //sending an verification email to the user trying to create an account
-    private fun verifyEmail() {
-        val mUser = mAuth!!.currentUser
-        mUser!!.sendEmailVerification()
+    private fun verifyMail() {
+        val user = mAuth!!.currentUser
+        user!!.sendEmailVerification()
             .addOnCompleteListener(view!!) { task ->
                 if (task.isSuccessful) {
-                    view?.toast("Verification email sent to " + mUser.email)
+                    view?.toast("Verification email sent to " + user.email)
                 } else {
                     view?.toast("Failed to send verification email")
                 }

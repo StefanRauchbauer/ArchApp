@@ -56,7 +56,7 @@ class CreateAccountView : BaseView() {
                 toast("Enter all required Fields")
             } else {
                 //passing all informations to the presenter
-                presenter.doCreateNewAccount(
+                presenter.doCreateAccount(
                     etEmail!!.text.toString(),
                     etPassword!!.text.toString(),
                     etFirstName!!.text.toString(),

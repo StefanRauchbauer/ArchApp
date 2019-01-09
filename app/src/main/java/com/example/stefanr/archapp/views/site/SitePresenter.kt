@@ -262,7 +262,7 @@ class SitePresenter(view: BaseView) : BasePresenter(view) {
     // Example: If a User requests a Image, he gets back a Image object
     override fun doActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
         var path: File? = null
-        if (data.data == null) {
+        if (data.data == null && requestCode != LOCATION_REQUEST) {
             val bm = data.extras.get("data") as Bitmap
             path = createImageFile(view!!)
             saveBitmap(bm, path)
